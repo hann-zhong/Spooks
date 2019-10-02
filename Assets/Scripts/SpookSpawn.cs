@@ -25,6 +25,7 @@ public class SpookSpawn : MonoBehaviour
             nextSpawn = Time.time + rate;
             randomX = Random.Range(-7, 7);
             randomY = Random.Range(-2, 2);
+            //Spawn Spooks a little further away from the center as assurance that player doesn't automatically die
             spawnLoc = new Vector2(randomX * 3, randomY * 3);
             Instantiate(spookPrefab, spawnLoc, Quaternion.identity);
             
