@@ -17,6 +17,7 @@ public class WizardAction : MonoBehaviour
 
     void Start()
     {
+        //Prevent game over and restart from appearing on the screen at the start of the game
         gameOver.SetActive(false);
         restart.SetActive(false);
     }
@@ -24,6 +25,7 @@ public class WizardAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Controls movement with WASD and arrow keys
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
 
@@ -33,6 +35,7 @@ public class WizardAction : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Allows player to turn position the wizard's angle with the mouse
         rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime);
         lookDirection = mousePosition - rb.position;
 
@@ -42,6 +45,7 @@ public class WizardAction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //If the wizard collides with a Spook, game over and restart will appear, wizard will disappear, and Spooks will stop spawning
         if(collision.gameObject.tag.Equals("Enemy")){
             gameOver.SetActive(true);
             restart.SetActive(true);
