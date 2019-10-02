@@ -11,6 +11,7 @@ public class WizardShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Shoot fireball when mouse is clicked
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
